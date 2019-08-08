@@ -24,6 +24,11 @@ abstract class Api
     protected static $baseUri = 'https://openapi.itiger.com/gateway';
 
     /**
+     * @var string
+     */
+    protected static $wsBaseUri = 'wss://openapi.itiger.com:8887/stomp';
+
+    /**
      * @var bool
      */
     protected static $skipVerifyTls = false;

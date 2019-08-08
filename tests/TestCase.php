@@ -34,6 +34,10 @@ cwjb/PHdyvryfiOYwoQcYIwylBga+rYAh8NRbPyk9H/sgLvo5jj5dD8MN0e9IHOd
 uznOHHeltjUra+lqayQ9AkAi3HNUwsQGRx4WTiKmsaJvBOjukfirgRmp1ojME0wb
 uKKou0jkiwfsXKw3jw6Q9TD+pF1v/vLm+YHhG+dVd0/Q
 -----END RSA PRIVATE KEY-----';
+
+//        $publicKey       = (string)getenv('API_PUBLIC_KEY');
+//        $privateKey       = (string)getenv('API_PRIVATE_KEY');
+
         $apiBaseUri       = (string)getenv('API_BASE_URI');
         $apiSkipVerifyTls = (bool)getenv('API_SKIP_VERIFY_TLS');
         $apiDebugMode     = (bool)getenv('API_DEBUG_MODE');

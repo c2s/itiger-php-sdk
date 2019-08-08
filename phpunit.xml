@@ -21,6 +21,8 @@
         </whitelist>
     </filter>
     <php>
+        <env name="API_PUBLIC_KEY" value="" force="false"/>
+        <env name="API_PRIVATE_KEY" value="" force="false"/>
         <env name="API_BASE_URI" value="https://openapi.itiger.com/gateway" force="false"/>
         <env name="API_SKIP_VERIFY_TLS" value="0" force="false"/>
     </php>

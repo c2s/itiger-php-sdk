@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: <Mofei> im@mofei.org
+ * Author: <mofei> im@mofei.org
  * Date: 2019/8/7 下午5:49
  */
 

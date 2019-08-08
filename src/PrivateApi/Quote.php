@@ -201,4 +201,169 @@ class Quote extends TigerApi
         return $response->getApiData();
     }
 
+    /**
+     * 获取期权K线.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function optionKline($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'option_kline', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 获取期权逐笔成交.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function optionTradeTick($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'option_trade_tick', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 获取期货交易所列表.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureExchange($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_exchange', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 获取期货合约详情.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureContractByContractCode($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_contract_by_contract_code', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 获取交易所下的可交易合约.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureContractByExchangeCode($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_contract_by_exchange_code', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 查询指定品种的连续合约.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureContinuousContracts($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_continuous_contracts', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 查询指定品种的当前合约¶.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureCurrentContract($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_current_contract', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 查询指定期货合约的交易时间.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureTradingDate($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_trading_date', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 期货K线.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureKline($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_kline', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 期货逐笔成交.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureTick($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_tick', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * 期货实时行情.
+     *
+     * @param  array $params 输入参数.
+     * @return mixed
+     * @throws \Tiger\SDK\Exceptions\BusinessException
+     * @throws \Tiger\SDK\Exceptions\HttpException
+     * @throws \Tiger\SDK\Exceptions\InvalidApiUriException
+     */
+    public function futureRealTimeQuote($params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'future_real_time_quote', $params);
+        return $response->getApiData();
+    }
+
 }
