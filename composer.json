@@ -1,0 +1,54 @@
+{
+  "name": "deepbluedata/itiger-php-sdk",
+  "type": "library",
+  "license": "MIT",
+  "description": "PHP SDK for iTiger API",
+  "keywords": [
+    "ddeepblue",
+    "ddeepbluedata",
+    "php",
+    "itiger",
+    "api",
+    "sdk"
+  ],
+  "homepage": "https://github.com/deepbluedata/itiger-php-sdk",
+  "support": {
+    "source": "https://github.com/deepbluedata/itiger-php-sdk",
+    "issues": "https://github.com/deepbluedata/itiger-php-sdk/issues"
+  },
+  "authors": [
+    {
+      "name": "mofei",
+      "email": "masterscao@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "~6.0",
+    "ratchet/pawl": "^0.3.2",
+    "monolog/monolog": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tiger\\SDK\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tiger\\SDK\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "secure-http": false
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit -c phpunit.xml --filter '/::testGet\\w+/' --coverage-text --verbose"
+  }
+}
