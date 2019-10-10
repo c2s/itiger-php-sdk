@@ -1,20 +1,21 @@
 {
-  "name": "deepbluedata/itiger-php-sdk",
+  "name": "c2s/itiger-php-sdk",
   "type": "library",
   "license": "MIT",
   "description": "PHP SDK for iTiger API",
   "keywords": [
-    "ddeepblue",
+    "iTiger",
     "ddeepbluedata",
     "php",
     "itiger",
     "api",
-    "sdk"
+    "sdk",
+    "itiger-sdk"
   ],
-  "homepage": "https://github.com/deepbluedata/itiger-php-sdk",
+  "homepage": "https://github.com/c2s/itiger-php-sdk",
   "support": {
-    "source": "https://github.com/deepbluedata/itiger-php-sdk",
-    "issues": "https://github.com/deepbluedata/itiger-php-sdk/issues"
+    "source": "https://github.com/c2s/itiger-php-sdk",
+    "issues": "https://github.com/c2s/itiger-php-sdk/issues"
   },
   "authors": [
     {
