@@ -1,13 +1,7 @@
 
 # PHP SDK for Tiger API
-> The detailed document [https://docs.Tiger.com](https://docs.Tiger.com), in order to receive the latest API change notifications, please `Watch` this repository.
+> The detailed document [https://openapi.itiger.com/docs/](https://openapi.itiger.com/docs/), in order to receive the latest API change notifications, please `Watch` this repository.
 
-[![Latest Version](https://img.shields.io/github/release/imofei/Tiger-php-sdk.svg)](https://github.com/imofei/Tiger-php-sdk/releases)
-[![PHP Version](https://img.shields.io/packagist/php-v/imofei/Tiger-php-sdk.svg?color=green)](https://secure.php.net)
-[![Build Status](https://travis-ci.org/imofei/Tiger-php-sdk.svg?branch=master)](https://travis-ci.org/imofei/Tiger-php-sdk)
-[![Total Downloads](https://poser.pugx.org/imofei/Tiger-php-sdk/downloads)](https://packagist.org/packages/imofei/Tiger-php-sdk)
-[![License](https://poser.pugx.org/imofei/Tiger-php-sdk/license)](LICENSE)
-[![Total Lines](https://tokei.rs/b1/github/imofei/Tiger-php-sdk)](https://github.com/imofei/Tiger-php-sdk)
 
 ## Requirements
 
@@ -20,7 +14,7 @@
 > Install package via [Composer](https://getcomposer.org/).
 
 ```shell
-composer require "imofei/Tiger-php-sdk:~1.0.0"
+composer require "c2s/itiger-php-sdk:~1.0.0"
 ```
 
 ## Usage
@@ -29,12 +23,12 @@ composer require "imofei/Tiger-php-sdk:~1.0.0"
 
 | Environment | BaseUri |
 | -------- | -------- |
-| *Production* `DEFAULT` | https://api.Tiger.com|
-| *Sandbox* | https://sandbox-api.Tiger.com |
+| *Production* `DEFAULT` | https://openapi.itiger.com/gateway|
+| *Sandbox* | https://openapi-sandbox.itiger.com/gateway	 |
 
 ```php
 // Switch to the sandbox environment
-TigerApi::setBaseUri('https://sandbox-api.Tiger.com');
+TigerApi::setBaseUri('https://openapi-sandbox.itiger.com/gateway');
 ```
 
 ### Debug mode & logging
@@ -70,11 +64,11 @@ use Tiger\SDK\PrivateApi\Account;
 use Tiger\SDK\Exceptions\HttpException;
 use Tiger\SDK\Exceptions\BusinessException;
 
-$auth = new Auth('key', 'secret', 'passphrase');
-$api = new Account($auth);
+$auth = new Auth($publicKey, $privateKey);
+$api = new Base($auth);
 
 try {
-    $result = $api->getOverview();
+    $result = $api->financialDaily();
     var_dump($result);
 } catch (HttpException $e) {
     var_dump($e->getMessage());
@@ -163,119 +157,6 @@ go(function () {
         });
     }
 });
-```
-
-### API list
-
-<details>
-<summary>Tiger\SDK\PrivateApi\Account</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\Account::getOverview() | YES | https://docs.Tiger.com/#account |
-| Tiger\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.Tiger.com/#get-transaction-history |
-| Tiger\SDK\PrivateApi\Account::transferIn() | YES | https://docs.Tiger.com/#transfer-funds-from-imofei-main-account-to-Tiger-account |
-| Tiger\SDK\PrivateApi\Account::transferOut() | YES | https://docs.Tiger.com/##transfer-funds-from-Tiger-account-to-imofei-main-account |
-| Tiger\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.Tiger.com/#cancel-transfer-out-request |
-| Tiger\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.Tiger.com/#get-transfer-out-request-records |
-</details>
-
-<details>
-<summary>Tiger\SDK\PrivateApi\Deposit</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.Tiger.com/#get-deposit-address |
-| Tiger\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.Tiger.com/#get-deposit-list |
-
-</details>
-
-<details>
-<summary>Tiger\SDK\PrivateApi\Fill</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\Fill::getFills() | YES | https://docs.Tiger.com/#list-fills |
-| Tiger\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.Tiger.com/#recent-fills |
-</details>
-
-<details>
-<summary>Tiger\SDK\PrivateApi\Order</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\Order::create() | YES | https://docs.Tiger.com/#place-a-new-order |
-| Tiger\SDK\PrivateApi\Order::cancel() | YES | https://docs.Tiger.com/#cancel-an-order |
-| Tiger\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.Tiger.com/#cancel-all-orders |
-| Tiger\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.Tiger.com/#list-orders |
-| Tiger\SDK\PrivateApi\Order::getList() | YES | https://docs.Tiger.com/#get-v1-historical-orders-list |
-| Tiger\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.Tiger.com/#get-an-order |
-| Tiger\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.Tiger.com/#recent-orders |
-| Tiger\SDK\PrivateApi\Order::getDetail() | YES | https://docs.Tiger.com/#recent-orders |
-| Tiger\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.Tiger.com/#recent-orders |
-
-</details>
-
-<details>
-<summary>Tiger\SDK\PrivateApi\WebSocketFeed</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\WebSocketFeed::getPublicServer() | NO | https://docs.Tiger.com/#apply-connect-token |
-| Tiger\SDK\PrivateApi\WebSocketFeed::getPrivateServer() | YES | https://docs.Tiger.com/#apply-connect-token |
-| Tiger\SDK\PrivateApi\WebSocketFeed::subscribePublicChannel() | NO | https://docs.Tiger.com/#public-channels |
-| Tiger\SDK\PrivateApi\WebSocketFeed::subscribePublicChannels() | NO | https://docs.Tiger.com/#public-channels |
-| Tiger\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannel() | YES | https://docs.Tiger.com/#private-channels |
-| Tiger\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannels() | YES | https://docs.Tiger.com/#private-channels |
-
-</details>
-
-<details>
-<summary>Tiger\SDK\PrivateApi\Withdrawal</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.Tiger.com/#get-withdrawal-quotas |
-| Tiger\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.Tiger.com/#get-withdrawals-list |
-| Tiger\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.Tiger.com/#apply-withdraw |
-| Tiger\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.Tiger.com/#cancel-withdrawal |
-
-</details>
-
-<details>
-<summary>Tiger\SDK\PublicApi\Symbol</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.Tiger.com/#get-ticker |
-| Tiger\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.Tiger.com/#get-full-order-book-level-2 |
-| Tiger\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.Tiger.com/#get-full-order-book-level-3 |
-| Tiger\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.Tiger.com/##level-2-pulling-messages |
-| Tiger\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.Tiger.com/##level-3-pulling-messages |
-| Tiger\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.Tiger.com/#get-trade-histories |
-
-</details>
-
-<details>
-<summary>Tiger\SDK\PublicApi\Time</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| Tiger\SDK\PublicApi\Time::timestamp() | NO | https://docs.Tiger.com/#server-time |
-
-</details>
-
-## Run tests
-> Modify your API key in `phpunit.xml` first.
-
-```shell
-# Add your API configuration items into the environmental variable first
-export API_BASE_URI=https://api.Tiger.com
-export API_KEY=key
-export API_SECRET=secret
-export API_PASSPHRASE=passphrase
-
-composer test
 ```
 
 ## License
